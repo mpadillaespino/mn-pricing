@@ -1,5 +1,7 @@
 package com.mfpe;
 
+import io.micronaut.context.annotation.Requires;
+import io.micronaut.context.env.Environment;
 import io.micronaut.scheduling.annotation.Scheduled;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +13,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Singleton
+@Requires(notEnv = Environment.TEST)
 public class EventScheduler {
 
     private static final List<String> SYMBOLS = Arrays.asList("APPlE","AMAZON", "GOOGLE","FACEBOOK","NETFLIX");
